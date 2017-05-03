@@ -15,7 +15,7 @@ class CreateVendaTable extends Migration
          Schema::create('venda', function (Blueprint $table) {
             $table->increments('id');
             $table->float('valor');
-            $table->string('data');
+            
             $table->float('comissao');
             $table->integer('vendedor_id')->unsigned();
             $table->foreign('vendedor_id')
