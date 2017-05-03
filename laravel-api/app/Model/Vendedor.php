@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vendedor extends Model
 {
+    public $table = "vendedor";
     protected $fillable = ['nome', 'email'];
 
     public function vendas()

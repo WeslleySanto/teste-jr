@@ -13,7 +13,11 @@ class VendedorController extends Controller
     public function index()
     {
         $Vendedores = Vendedor::all();
-        return response()->json($Vendedores);
+        if(count($Vendedores) > 0){
+            return response()->json($Vendedores);
+        }else{
+            return response()->json(array('msg' => 'Nenhum vendedor cadastrado.'));
+        }
     }
 
     public function listarVendedores($Vendedor)

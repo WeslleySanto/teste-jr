@@ -14,7 +14,7 @@
 Route::group(['prefix' => 'api'], function(){
     
     Route::get('/vendedores', 'VendedorController@index');
-    Route::post('/vendedor', 'Vendedor@criarVendedor');
+    Route::post('/vendedor', 'VendedorController@criarVendedor');
     
-    Route::post('/venda', 'Venda@efetuarVenda');
+    Route::post('/venda', 'VendaController@efetuarVenda');
 });
