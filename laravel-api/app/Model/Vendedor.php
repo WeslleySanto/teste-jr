@@ -11,7 +11,7 @@ class Vendedor extends Model
 
     public function vendas()
     {
-      return $this->hasMany('App\Venda');
+      return $this->hasMany('App\Model\Venda');
     }
 
     public function adicionarComissao( $valor )

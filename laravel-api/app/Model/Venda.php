@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Venda extends Model
 {
     public $table = "venda";
-    protected $fillable = ['valor', 'vendedor_id', 'data'];
+    protected $fillable = ['valor', 'vendedor_id'];
 
     public function calcularComissao()
     {
@@ -19,7 +19,7 @@ class Venda extends Model
 
     public function vendedor()
     {
-      return $this->belongsTo('App\Vendedor');
+      return $this->belongsTo('App\Model\Vendedor');
     }
 
 

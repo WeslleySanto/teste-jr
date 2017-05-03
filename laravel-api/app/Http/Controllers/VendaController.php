@@ -12,14 +12,13 @@ use Validator;
 class VendaController extends Controller
 {
 
-    public function efetuarVenda(Request $request)
+    public function store(Request $request)
     {
       $data = $request->all();
 
       $validator = Validator::make($data, [
         'vendedor_id' => 'required',
-        'valor' => 'required|numeric|min:1',
-        'data' => 'required'
+        'valor' => 'required|numeric|min:1'
       ]);
 
       if ($validator->fails()) {
@@ -33,7 +32,7 @@ class VendaController extends Controller
       $venda->fill($data);
       $venda->calcularComissao();
       $vendedor = $venda->vendedor;
-      $vendedor->save();
+      $venda->save();
 
       return response()->json($venda, 201);
     }
