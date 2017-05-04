@@ -27,7 +27,7 @@ class VendedorController extends Controller
       return response()->json($Vendedor);
     }
 
-    public function criarVendedor(Request $request)
+    public function store(Request $request)
     {
         $data = $request->all();
 

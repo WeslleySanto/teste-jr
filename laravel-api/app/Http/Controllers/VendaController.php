@@ -27,13 +27,18 @@ class VendaController extends Controller
           'errors' => $validator->errors()->all()
         ], 422);
       }
-
+  
       $venda = new Venda();
       $venda->fill($data);
-      $venda->calcularComissao();
+      $venda->calcularComissao($data['valor']);
       $vendedor = $venda->vendedor;
       $venda->save();
-
-      return response()->json($venda, 201);
+        
+      $dados_venda = array();
+      $dados_venda['nome'] = $venda['vendedor']->nome;
+      $dados_venda['email'] = $venda['vendedor']->email;
+      $dados_venda['vl_comissao'] = $venda['comissao'];
+      
+      return response()->json($dados_venda, 201);
     }
 }
