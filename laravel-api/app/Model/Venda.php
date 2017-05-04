@@ -9,9 +9,9 @@ class Venda extends Model
     public $table = "venda";
     protected $fillable = ['valor', 'vendedor_id'];
 
-    public function calcularComissao()
+    public function calcularComissao($valor)
     {
-      $comissao  = round(($this->value * 0.085), 2);
+      $comissao  = $this->valor * 0.085;
       $this->comissao = $comissao;
       $this->vendedor->comissao += $comissao;
       $this->vendedor->save();
