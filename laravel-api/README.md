@@ -11,8 +11,8 @@ POST '/api/vendedor'
     - nome
     - email
 
-### Nova venda para um vendedor
+### Efetuar uma venda
 POST '/api/venda'
 - Campos:
     - vendedor_id
-    - valor
+    - valor decimal (8,2)
