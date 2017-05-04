@@ -20,13 +20,6 @@ class VendedorController extends Controller
         }
     }
 
-    public function listarVendedores($Vendedor)
-    {
-      $Vendedor = Vendedor::find($Vendedor);
-      $vende = $Vendedor->venda;
-      return response()->json($Vendedor);
-    }
-
     public function store(Request $request)
     {
         $data = $request->all();
